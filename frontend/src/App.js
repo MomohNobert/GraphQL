@@ -1,6 +1,14 @@
 import styled from 'styled-components';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
+
 import BookList from './components/BookList';
 import { GlobalStyle } from './global-styles';
+
+// Apollo Client Setup
+const client = new ApolloClient({
+  uri: "http://localhost:5000/graphql"
+})
 
 
 const AppContainer = styled.div`
@@ -26,7 +34,7 @@ const ContentContainer = styled.div`
 
 function App() {
   return (
-    <>
+    <ApolloProvider client={client}>
       <GlobalStyle />
       <AppContainer>
         <h1>Nobert's Reading List</h1>
@@ -34,7 +42,7 @@ function App() {
           <BookList />  
         </ContentContainer> 
       </AppContainer>
-    </>
+    </ApolloProvider>
   );
 }
 

@@ -2,7 +2,7 @@ function BookList() {
     return (
         <div>
             <ul>
-                <li>Books name</li>
+                <li>Book name</li>
             </ul>
         </div>
     )
