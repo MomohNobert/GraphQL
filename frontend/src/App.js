@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { GlobalStyle } from './global-styles';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 import BookList from './components/BookList';
-import { GlobalStyle } from './global-styles';
+import AddBook from './components/AddBook';
 
 // Apollo Client Setup
 const client = new ApolloClient({
@@ -30,6 +31,7 @@ const AppContainer = styled.div`
 const ContentContainer = styled.div`
   height: 80%;
   border: 1px solid red;
+  display: flex;
 `;
 
 function App() {
@@ -40,6 +42,7 @@ function App() {
         <h1>Nobert's Reading List</h1>
         <ContentContainer>
           <BookList />  
+          <AddBook />
         </ContentContainer> 
       </AppContainer>
     </ApolloProvider>
